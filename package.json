@@ -1,0 +1,24 @@
+{
+  "name": "unit3hw",
+  "version": "1.0.0",
+  "description": "Emmy and Lyndsey's project Emmy",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lyndsssa/unit3HW.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lyndsssa/unit3HW/issues"
+  },
+  "homepage": "https://github.com/lyndsssa/unit3HW#readme",
+  "dependencies": {
+    "express": "^4.16.4",
+    "mongoose": "^5.5.8"
+  }
+}
