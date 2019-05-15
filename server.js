@@ -1,14 +1,12 @@
 
 const express = require('express')
-const moment = require('moment')
 const mongoose = require('mongoose')
-const morgan = require('morgan')
 const app = express()
 const db = mongoose.connection
 
 
 const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/myapp'
-const PORT = process.env.PORT || 3004
+const PORT = process.env.PORT || 3000
 
 
 mongoose.connect(mongoURI, { useNewUrlParser: true },
@@ -24,19 +22,16 @@ app.use(express.urlencoded({ extended: false }))
 app.use(express.json())
 
 
-app.use(morgan('tiny'))
 
 app.use(express.static('public'))
 
-
-const myappController = require('./controllers/myapp.js')
-app.use('/myapp', myappController)
 
 
 app.get('*', (req, res) => {
   res.status(404).json('Page Not Found')
 })
 
-app.listen(PORT, () => {
-  console.log(moment().format('MMMM Do YYYY, h:mm:ss a'), 'app listening on port', PORT)
-})
+app.listen(3000, () => {     console.log('listening...'); 
+
+}); 
+
