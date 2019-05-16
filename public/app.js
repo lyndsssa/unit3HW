@@ -4,6 +4,8 @@ app.controller('MyController', ['$http', function($http){
     const controller = this;
     this.indexOfEditFormToShow = null;
     this.h5 = "PETS!"
+    this.name = ''
+    this.useFindAndModify = false
     
     this.editPet = function(pet){
         $http({
