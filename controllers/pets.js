@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
+
 //DELETE Route
 
 router.delete('/:id', (req, res) => {
@@ -21,9 +21,9 @@ router.delete('/:id', (req, res) => {
 });
 
 //CREATE route//
-=======
+
 /////////CREATE route////////
->>>>>>> 47e8207127ec6f5b443caa61ed0df83d260465b0
+
 router.post('/', (req, res) => {
     Pets.create(req.body, (err, createdPet) => {
         res.json(createdPet);
