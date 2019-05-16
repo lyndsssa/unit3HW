@@ -3,7 +3,7 @@ const router = express.Router()
 
 const Pet = require('../models/pets.js')
 
-//INDEX route//
+/////////INDEX route////////
 router.get('/', (req, res) => {
   //res.send('index');
      Pets.find({}, (err, foundPets) => {
@@ -11,7 +11,7 @@ router.get('/', (req, res) => {
     });
 });
 
-//CREATE route//
+/////////CREATE route////////
 router.post('/', (req, res) => {
     Pets.create(req.body, (err, createdPet) => {
         res.json(createdPet);

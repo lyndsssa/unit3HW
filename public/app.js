@@ -29,4 +29,20 @@ this.pet = '';
             console.log(error);
         });
     }
+
+//Create a function to get all pets
+      this.getPets = () => {
+        $http({
+          method: 'GET',
+          url: '/pets'
+        }).then(response => {
+          this.pets = response.data
+          this.pet = this.pets[0]
+        }, error => {
+          console.log(error)
+        })
+      }
+      this.getPets()
+
+//create a function to delete all pets
 }]) //closes app.controller, remember: all methods need to go inside the app.controller
