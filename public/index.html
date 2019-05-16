@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<!--add Angular app ng-app-->
+<html ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <title>Pets</title>
+<!--import anular-->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.7.2/angular.min.js" charset="utf-8"></script>
+<!--import our app.js file-->
+<script src="/app.js" charset="utf-8"></script>
+<!-- link css -->
+<link rel="stylesheet" href="css/main.css">
+</head>
+<!--<!--add our angular controller to body tag so whatever is inside the controller the data will render on browser-->
+<body ng-controller="MainController as ctrl">
+<div class="container">
+  <h5> {{ ctrl.h5 }} </h5>
+<!--have to add the create new holliday function to html by adding ng-submit to the form tag-->
+<form ng-submit="ctrl.createPet()">
+  <input type="text" ng-model="ctrl.createForm.name" placeholder="Pet name">
+    <input type="submit" value="Post Your Pet">
+  </form>
