@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-const petSchema = new mongoose.Schema({
+const petSchema =  mongoose.Schema({
     name: {type: String, required: true},
     img: [{type: String}]
 });
