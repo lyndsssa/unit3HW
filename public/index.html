@@ -11,14 +11,35 @@
 <!-- link css -->
 <link rel="stylesheet" href="css/app.css">
 </head>
-<!--<!--add our angular controller to body tag so whatever is inside the controller the data will render on browser-->
+<!--add our angular controller to body tag so whatever is inside the controller the data will render on browser-->
 <body ng-controller="MainController as ctrl">
 
 <div class="container">
   <h5> {{ ctrl.h5 }} </h5>
 <!--have to add the create new holliday function to html by adding ng-submit to the form tag-->
+
 <form ng-submit="ctrl.createPet()">
   <input type="text" ng-model="ctrl.createForm.name" placeholder="Pet name">
     <input type="submit" value="Post Your Pet">
   </form>
 <!-- created table to see the pets names -->
+
+
+<ul>
+    <li ng-repeat="pet in ctrl.pets">
+ 
+ 	 <button ng-click="ctrl.deletePet(pet)">Delete This Pet</button>
+ 	 <form ng-if="$index === ctrl.indexOfEditFormToShow" ng-submit="ctrl.editPet(Pet)">
+ 		 <input ng-model="ctrl.updatedName" type="text" placeholder="name"/>
+ 		 <input type="submit" value="Update Name"/>
+
+ 		  <input ng-model="ctrl.updatedImg" type="text" placeholder="image"/>
+ 		 <input type="submit" value="Update Image"/>
+ 	 </form>
+ 	 <a ng-if="$index !== ctrl.indexOfEditFormToShow"
+          href="#"
+      ng-click="ctrl.indexOfEditFormToShow = $index">
+              Edit This Pet</a>
+          
+          </li>
+    </ul>

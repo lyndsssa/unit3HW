@@ -9,7 +9,7 @@ this.pets = []
 this.createForm = {}
 this.pet = '';
 
-//create pet method//
+//create pet POST method//
 //On form submit make AJAX request to our API/server
 //1. Include an object as the argument
 //2. Chain a .then() after the $http function, with an argument of response
@@ -30,7 +30,7 @@ this.pet = '';
         });
     }
 
-//Create a function to get all pets
+//Create a function to GET all pets
       this.getPets = () => {
         $http({
           method: 'GET',
@@ -44,5 +44,62 @@ this.pet = '';
       }
       this.getPets()
 
-//create a function to delete all pets
+
+//Create a function to EDIT pets
+this.editPets = function(pets){
+    $http({
+      method:'PUT',
+      url: '/pets/' + pets._id,
+      data: {
+        name: this.updatedName,
+        img: this.updatedimg
+      }
+    }).then(
+      function(response){
+        controller.getPets();
+        controller.indexOfEditFormToShow = null;
+      },
+      function(error){
+        console.log(error);
+      }
+    );
+  }
+  this.editPets()
+
+//Create a function to DELETE pets
+  this.deletePets = id => {
+    $http({
+      method: 'DELETE'
+      url: '/pets/' + id
+    }).then (response => {
+      console.log(response.data)
+//target the object in the pets array and delete
+    const removeByIndex =
+    this.pets.findIndex(pet => pet._id === id))
+//now remove it form array with .splice (add or remove)
+this.pets.splice(removeByIndex, 1)
+ }, error => {
+   console.log(error)
+    })
+  }
+
+//UPDATE pets
+this.updatedPets = pet => {
+
+  pet.celebrated = !pet.celebrated
+  //console.log(holiday.celebrated)
+  $http({
+    method: 'PUT',
+    url: '/pets/' + pet._id,
+    data: { pet: pet.pet }
+  }).then(response => {
+    console.log(response.data.pet)
+  }, error => {
+    console.log(error.message)
+  })
+
+}
+
+
+
 }]) //closes app.controller, remember: all methods need to go inside the app.controller
