@@ -11,8 +11,8 @@ router.get('/', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
-//DELETE Route
+
+///////DELETE Route///////
 
 router.delete('/:id', (req, res) => {
     Pets.findByIdAndRemove(req.params.id, (err, deletedPet) => {
@@ -20,10 +20,10 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-//CREATE route//
-=======
+
+
 /////////CREATE route////////
->>>>>>> 47e8207127ec6f5b443caa61ed0df83d260465b0
+
 router.post('/', (req, res) => {
     Pets.create(req.body, (err, createdPet) => {
         res.json(createdPet);
@@ -31,7 +31,7 @@ router.post('/', (req, res) => {
     });
 });
 
-// PUT Route
+/////// PUT Route //////
 router.put('/:id', (req, res) => {
     Pets.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPet) => {
         res.json(updatedPet);
