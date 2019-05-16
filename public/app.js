@@ -5,6 +5,10 @@ app.controller('MyController', ['$http', function($http){
     this.indexOfEditFormToShow = null;
     this.h5 = "PETS!"
 
+    this.name = ''
+    this.useFindAndModify = false
+
+
     this.editPet = function(pet){
         $http({
             method:'PUT',

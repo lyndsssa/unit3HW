@@ -19,8 +19,8 @@ router.get('/', (req, res) => {
 
 
 router.delete('/:id', (req, res) => {
-    Pets.findByIdAndRemove(req.params.id, (err, deletedPet) => {
-        res.json(deletedPet);
+    Pets.findByIdAndRemove(req.params.id, (err, deletedPets) => {
+        res.json(deletedPets);
     });
 });
 
@@ -32,16 +32,16 @@ router.delete('/:id', (req, res) => {
 /////////CREATE route////////
 
 router.post('/', (req, res) => {
-    Pets.create(req.body, (err, createdPet) => {
-        res.json(createdPet);
-        console.log(createdPet)
+    Pets.create(req.body, (err, createdPets) => {
+        res.json(createdPets);
+        console.log(createdPets)
     });
 });
 
 /////// PUT Route //////
 router.put('/:id', (req, res) => {
-    Pets.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPet) => {
-        res.json(updatedPet);
+    Pets.findByIdAndUpdate(req.params.id, req.body, {new:true}, (err, updatedPets) => {
+        res.json(updatedPets);
     });
 });
 
