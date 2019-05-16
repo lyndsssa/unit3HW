@@ -1,11 +1,13 @@
 //create angular app
 const app = angular.module('myApp', []);
+
 //create our app controller
-app.controller('MyController', ['$http', function($http){
-  this.h5 = 'PETS!'
-  this.holidays = []
-  this.createForm = {}
-  this.holiday = '';
+app.controller('MainController', ['$http', function($http){
+console.log("app.js running")
+ this.h5 = 'PETS!'
+this.pets = []
+this.createForm = {}
+this.pet = '';
 
 //create pet method//
 //On form submit make AJAX request to our API/server
@@ -14,9 +16,10 @@ app.controller('MyController', ['$http', function($http){
 //3. .then() function can then use what the server has responded with
 //4. .then() takes two arguments, the first is a successful response from the server, the second is the error response if there is an error
     this.createPet = function(){
+      console.log('submit button calls this function')
         $http({
             method:'POST',
-            url:'/myapp',
+            url:'/pets',
             data: this.createForm
           }).then(response => {
             this.pets.unshift(response.data)
@@ -26,3 +29,4 @@ app.controller('MyController', ['$http', function($http){
             console.log(error);
         });
     }
+}]) //closes app.controller, remember: all methods need to go inside the app.controller

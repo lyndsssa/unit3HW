@@ -1,11 +1,10 @@
 const mongoose = require('mongoose');
-const Pets = mongoose.model('Pet', petSchema);
 
 const petSchema = new mongoose.Schema({
     name: {type: String, required: true},
-    img: []{type: String}]
+    img: [{type: String}]
 });
 
 
 
-module.exports = Pets;
+module.exports = mongoose.model('Pet', petSchema)

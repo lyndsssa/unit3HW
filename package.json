@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "Emmy and Lyndsey's project Emmy",
   "main": "server.js",
-<<<<<<< HEAD
-=======
+
   "dependencies": {
     "express": "^4.16.4",
     "moment": "^2.24.0",
@@ -13,7 +12,7 @@
     "nodemon": "^1.19.0"
   },
   "devDependencies": {},
->>>>>>> 2de949073d4a1cfa512bd478e9b0835ccad92d9a
+
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
@@ -27,13 +26,8 @@
   "bugs": {
     "url": "https://github.com/lyndsssa/unit3HW/issues"
   },
-<<<<<<< HEAD
-  "homepage": "https://github.com/lyndsssa/unit3HW#readme",
-  "dependencies": {
-    "express": "^4.16.4",
-    "mongoose": "^5.5.8"
-  }
-=======
+
+
   "homepage": "https://github.com/lyndsssa/unit3HW#readme"
->>>>>>> 2de949073d4a1cfa512bd478e9b0835ccad92d9a
+
 }
