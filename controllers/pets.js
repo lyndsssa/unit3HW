@@ -24,11 +24,9 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-<<<<<<< HEAD
 
-=======
 //CREATE route//
->>>>>>> 18ba76d2a8ec2513fb69507c2035f80402f9d236
+
 
 /////////CREATE route////////
 

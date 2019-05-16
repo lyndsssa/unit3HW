@@ -75,7 +75,7 @@ this.editPets = function(pets){
       console.log(response.data)
 //target the object in the pets array and delete
     const removeByIndex =
-    this.pets.findIndex(pet => pet._id === id))
+    this.pets.findIndex(pet => pet._id === id)
 //now remove it form array with .splice (add or remove)
 this.pets.splice(removeByIndex, 1)
  }, error => {
