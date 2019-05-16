@@ -1,34 +1,52 @@
-//create angular app
-const app = angular.module('myApp', []);
+const app = angular.module('MyApp', []);
 
-//create our app controller
-app.controller('MainController', ['$http', function($http){
-console.log("app.js running")
- this.h5 = 'PETS!'
-this.pets = []
-this.createForm = {}
-this.pet = '';
+app.controller('MyController', ['$http', function($http){
+    const controller = this;
+    this.indexOfEditFormToShow = null;
+    this.h5 = "PETS!"
 
-//create pet POST method//
-//On form submit make AJAX request to our API/server
-//1. Include an object as the argument
-//2. Chain a .then() after the $http function, with an argument of response
-//3. .then() function can then use what the server has responded with
-//4. .then() takes two arguments, the first is a successful response from the server, the second is the error response if there is an error
-    this.createPet = function(){
-      console.log('submit button calls this function')
+    this.editPet = function(pet){
         $http({
-            method:'POST',
-            url:'/pets',
-            data: this.createForm
-          }).then(response => {
-            this.pets.unshift(response.data)
-            this.createForm = {}
-            console.log(response.data)
-        }, error => {
+            method:'PUT',
+            url:'/pets/' + pet._id,
+            data: {
+                name: this.updatedName,
+                img: this.updatedImg
+            }
+        }).then(function(response){
+            controller.getPets();
+            controller.indexOfEditFormToShow = null;
+        }, function(error){
             console.log(error);
         });
     }
+
+    this.deletePet = function(pet){
+        $http({
+            method:'DELETE',
+            url:'/pets/' + pet._id
+        }).then(function(response){
+            controller.getPets();
+        }, function(error){
+            console.log(error);
+        });
+    }
+
+    this.createPet = function(){
+        $http({
+            method:'POST',
+            url:'/pets',
+            data: {
+                name: this.updatedName,
+                img: this.updatedImg
+            }
+        }).then(function(response){
+            controller.getPets();
+        }, function(error){
+            console.log(error);
+        });
+    }
+
 
 //Create a function to GET all pets
       this.getPets = () => {
@@ -86,20 +104,19 @@ this.pets.splice(removeByIndex, 1)
 //UPDATE pets
 this.updatedPets = pet => {
 
-  pet.celebrated = !pet.celebrated
-  //console.log(holiday.celebrated)
-  $http({
-    method: 'PUT',
-    url: '/pets/' + pet._id,
-    data: { pet: pet.pet }
-  }).then(response => {
-    console.log(response.data.pet)
-  }, error => {
-    console.log(error.message)
-  })
-
-}
+    this.getPets = function(){
 
 
+        $http({
+            method:'GET',
+            url:'/pets/'
+        }).then(function(response){
+            controller.pets = response.data;
+        }, function(error){
 
-}]) //closes app.controller, remember: all methods need to go inside the app.controller
+        });
+
+    }
+
+    this.getPets();
+}]);
